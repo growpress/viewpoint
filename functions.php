@@ -2,10 +2,10 @@
 /**
  * Functions and definitions
  *
- * @package gpframework
+ * @package viewpoint
  */
 
-if ( ! function_exists( 'gpframework_setup' ) ) :
+if ( ! function_exists( 'viewpoint_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -13,14 +13,14 @@ if ( ! function_exists( 'gpframework_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function gpframework_setup() {
+function viewpoint_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on gpframework, use a find and replace
-	 * to change 'gpframework' to the name of your theme in all the template files
+	 * If you're building a theme based on viewpoint, use a find and replace
+	 * to change 'viewpoint' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'gpframework', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'viewpoint', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -46,8 +46,8 @@ function gpframework_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'gpframework' ),
-		//'social' => __( 'Social Menu', 'gpframework' )
+		'primary' => esc_html__( 'Primary Menu', 'viewpoint' ),
+		//'social' => __( 'Social Menu', 'viewpoint' )
 	) );
 
 	/*
@@ -63,19 +63,19 @@ function gpframework_setup() {
 	) );
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'gpframework_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'viewpoint_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 }
-endif; // gpframework_setup
-add_action( 'after_setup_theme', 'gpframework_setup' );
+endif; // viewpoint_setup
+add_action( 'after_setup_theme', 'viewpoint_setup' );
 
 
-function gpframework_add_editor_styles() {
+function viewpoint_add_editor_styles() {
     add_editor_style( 'editor-style.css' );
 }
-add_action( 'admin_init', 'gpframework_add_editor_styles' );
+add_action( 'admin_init', 'viewpoint_add_editor_styles' );
 
 
 /**
@@ -85,10 +85,10 @@ add_action( 'admin_init', 'gpframework_add_editor_styles' );
  *
  * @global int $content_width
  */
-function gpframework_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'gpframework_content_width', 1000 );
+function viewpoint_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'viewpoint_content_width', 1000 );
 }
-add_action( 'after_setup_theme', 'gpframework_content_width', 0 );
+add_action( 'after_setup_theme', 'viewpoint_content_width', 0 );
 
 
 /**
@@ -96,27 +96,9 @@ add_action( 'after_setup_theme', 'gpframework_content_width', 0 );
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
-function gpframework_widgets_init() {
+function viewpoint_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'gpframework' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	register_sidebar( array(
-		'name'          => esc_html__( 'Home Hero', 'gpframework' ),
-		'id'            => 'home-hero',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer First', 'gpframework' ),
+		'name'          => esc_html__( 'Footer First', 'viewpoint' ),
 		'id'            => 'footer-first',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -125,7 +107,7 @@ function gpframework_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Second', 'gpframework' ),
+		'name'          => esc_html__( 'Footer Second', 'viewpoint' ),
 		'id'            => 'footer-second',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -134,7 +116,7 @@ function gpframework_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Third', 'gpframework' ),
+		'name'          => esc_html__( 'Footer Third', 'viewpoint' ),
 		'id'            => 'footer-third',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -142,17 +124,8 @@ function gpframework_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Fourth', 'gpframework' ),
-		'id'            => 'footer-fourth',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
 }
-add_action( 'widgets_init', 'gpframework_widgets_init' );
+add_action( 'widgets_init', 'viewpoint_widgets_init' );
 
 /**
  * Load Foundation file.
@@ -162,24 +135,14 @@ require get_template_directory() . '/inc/foundation.php';
 /**
  * Enqueue scripts and styles.
  */
-function gpframework_scripts() {
+function viewpoint_scripts() {
 
 	wp_enqueue_script( 'jquery-effects-core' );
 
 	/**
 	 * For getting the theme version number to cache bust
 	 */
-	$gpframework = wp_get_theme();
-
-	/**
-	 * Load Blog Page on default masonry blog pages only
-	 *
-	 * @see index.php
-	 */
-	if ( is_home() && ( ! is_page_template( 'template-blog-traditional.php' ) ) ) {
-		wp_enqueue_script( 'jquery-masonry' );
-		wp_enqueue_script( 'gpframework-blog-masonry', get_template_directory_uri() . '/js/blog-masonry.js', array(), $gpframework['Version'], true );
-	}
+	$viewpoint = wp_get_theme();
 
 	/**
 	 * Font Awesome Handle based on the standardized set
@@ -187,24 +150,19 @@ function gpframework_scripts() {
 	 * @link https://github.com/grappler/wp-standard-handles
 	 */
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '4.5.0', 'all' );
-	wp_enqueue_style( 'gpframework-style', get_stylesheet_uri(), array(), $gpframework['Version'], 'all' );
+	wp_enqueue_style( 'viewpoint-style', get_stylesheet_uri(), array(), $viewpoint['Version'], 'all' );
 
-	wp_enqueue_script( 'gpframework-slick-nav', get_template_directory_uri() . '/js/jquery.slicknav.min.js', array(), '1.0.4', true );
+	wp_enqueue_script( 'viewpoint-slick-nav', get_template_directory_uri() . '/js/jquery.slicknav.min.js', array(), '1.0.4', true );
 
-	wp_enqueue_script( 'gpframework-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script( 'viewpoint-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-	wp_enqueue_script( 'gpframework-init', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '1.0', true );
+	wp_enqueue_script( 'viewpoint-init', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '1.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'gpframework_scripts' );
-
-/**
- * Load primary navigation walker nav menu
- */
-require get_template_directory() . '/inc/aria-walker-nav.php';
+add_action( 'wp_enqueue_scripts', 'viewpoint_scripts' );
 
 /**
  * Load default Google fonts
@@ -235,11 +193,6 @@ require get_template_directory() . '/customizer/styles.php';
 require get_template_directory() . '/customizer/mods.php';
 
 /**
- * Load Homepage Components
- */
-require get_template_directory() . '/inc/home-slider.php';
-
-/**
  * Load recommended plugins
  */
 require get_template_directory() . '/inc/class-tgm-plugin-activation.php';
@@ -254,8 +207,3 @@ require get_template_directory() . '/inc/default-widgets.php';
  * Load Theme Info screen
  */
 require get_template_directory() . '/inc/theme-info/welcome-screen.php';
-
-/**
- * Load upgrade notice
- */
-require get_template_directory() . '/inc/upgrade/upgrade.php';
