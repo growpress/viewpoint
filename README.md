@@ -1,2 +1,0 @@
-# viewpoint
-Viewpoint WordPress Theme
