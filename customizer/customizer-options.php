@@ -3,18 +3,18 @@
 /**
  * Remove Default Options
  */
-function gpframework_customize_register( $wp_customize ) {
+function viewpoint_customize_register( $wp_customize ) {
 	// Remove the default colors section
 	$wp_customize->remove_section('colors');
 	// Remove the default background image section
 	$wp_customize->remove_section('background_image');
 }
-add_action( 'customize_register', 'gpframework_customize_register' );
+add_action( 'customize_register', 'viewpoint_customize_register' );
 
 /**
  * Defines customizer options
  */
-function gpframework_customizer_library_options() {
+function viewpoint_customizer_library_options() {
 
 	// Theme defaults
 	$primary_color = '#5bc08c';
@@ -23,8 +23,8 @@ function gpframework_customizer_library_options() {
 	$primary_color_drkblue = '#465a63';
 
 	$site_link = "https://rescuethemes.com";
-	$upgrade_link = "https://rescuethemes.com/wordpress-themes/gpframework-plus/";
-	$upgrade_text = __( 'Upgrade to gpframework Plus', 'gpframework');
+	$upgrade_link = "https://rescuethemes.com/wordpress-themes/viewpoint-plus/";
+	$upgrade_text = __( 'Upgrade to viewpoint Plus', 'viewpoint');
 
 	// Image path default
 	$imagepath =  get_template_directory_uri() . '/img/';
@@ -32,7 +32,7 @@ function gpframework_customizer_library_options() {
 	// Get Categories
 	$options_cats = array();
 	$options_cats_obj = get_categories( 'type=post');
-	$options_cats[''] = __( 'Select a Category', 'gpframework' );
+	$options_cats[''] = __( 'Select a Category', 'viewpoint' );
 	foreach ($options_cats_obj as $cat) {
 		$options_cats[$cat->term_id] = $cat->cat_name;
 	}
@@ -74,7 +74,7 @@ function gpframework_customizer_library_options() {
 
 	$panels[] = array(
 		'id' => $panel,
-		'title' => __( 'Header', 'gpframework' ),
+		'title' => __( 'Header', 'viewpoint' ),
 		'priority' => '6'
 	);
 
@@ -82,15 +82,15 @@ function gpframework_customizer_library_options() {
 
 	$sections[] = array(
 		'id' => $section,
-		'title' => __( 'General', 'gpframework' ),
+		'title' => __( 'General', 'viewpoint' ),
 		'priority' => '5',
-		'description' => __( 'General header settings', 'gpframework' ),
+		'description' => __( 'General header settings', 'viewpoint' ),
 		'panel' => $panel
 	);
 
-	$options['gpframework-sticky-header'] = array(
-		'id' => 'gpframework-sticky-header',
-		'label'   => __( 'Sticky Header', 'gpframework' ),
+	$options['viewpoint-sticky-header'] = array(
+		'id' => 'viewpoint-sticky-header',
+		'label'   => __( 'Sticky Header', 'viewpoint' ),
 		'section' => $section,
 		'type'    => 'checkbox',
 		'default' => 0,
@@ -100,30 +100,30 @@ function gpframework_customizer_library_options() {
 
 	$sections[] = array(
 		'id' => $section,
-		'title' => __( 'Logo', 'gpframework' ),
+		'title' => __( 'Logo', 'viewpoint' ),
 		'priority' => '10',
-		'description' => __( 'Upload the logo image', 'gpframework' ),
+		'description' => __( 'Upload the logo image', 'viewpoint' ),
 		'panel' => $panel
 	);
 
-	$options['gpframework-logo'] = array(
-		'id' => 'gpframework-logo',
-		'label'   => __( 'Logo', 'gpframework' ),
+	$options['viewpoint-logo'] = array(
+		'id' => 'viewpoint-logo',
+		'label'   => __( 'Logo', 'viewpoint' ),
 		'section' => $section,
 		'type'    => 'image',
 		'default' => $imagepath . 'logo.png'
 	);
 
-	$options['gpframework-logo-height'] = array(
-		'id' => 'gpframework-logo-height',
-		'label'   => __( 'Logo Height (px or em)', 'gpframework' ),
+	$options['viewpoint-logo-height'] = array(
+		'id' => 'viewpoint-logo-height',
+		'label'   => __( 'Logo Height (px or em)', 'viewpoint' ),
 		'section' => $section,
 		'type'    => 'text'
 	);
 
-	$options['gpframework-logo-width'] = array(
-		'id' => 'gpframework-logo-width',
-		'label'   => __( 'Logo Width (px or em)', 'gpframework' ),
+	$options['viewpoint-logo-width'] = array(
+		'id' => 'viewpoint-logo-width',
+		'label'   => __( 'Logo Width (px or em)', 'viewpoint' ),
 		'section' => $section,
 		'type'    => 'text',
 		'default' => '225px'
@@ -133,27 +133,27 @@ function gpframework_customizer_library_options() {
 
 	$sections[] = array(
 		'id' => $section,
-		'title' => __( 'Contact Details', 'gpframework' ),
+		'title' => __( 'Contact Details', 'viewpoint' ),
 		'priority' => '10',
-		'description' => __( 'Contact details displayed in the top header', 'gpframework' ),
+		'description' => __( 'Contact details displayed in the top header', 'viewpoint' ),
 		'panel' => $panel
 	);
 
-	$options['gpframework-header-phone'] = array(
-		'id' => 'gpframework-header-phone',
-		'label'   => __( 'Phone Number', 'gpframework' ),
+	$options['viewpoint-header-phone'] = array(
+		'id' => 'viewpoint-header-phone',
+		'label'   => __( 'Phone Number', 'viewpoint' ),
 		'section' => $section,
 		'type'    => 'textarea',
-		'default' => __( '800 555 1234', 'gpframework'),
+		'default' => __( '800 555 1234', 'viewpoint'),
 		'transport'	=> 'postMessage'
 	);
 
-	$options['gpframework-header-address'] = array(
-		'id' => 'gpframework-header-address',
-		'label'   => __( 'Location', 'gpframework' ),
+	$options['viewpoint-header-address'] = array(
+		'id' => 'viewpoint-header-address',
+		'label'   => __( 'Location', 'viewpoint' ),
 		'section' => $section,
 		'type'    => 'textarea',
-		'default' => __( '5046 S Greenwood, Chicago USA', 'gpframework'),
+		'default' => __( '5046 S Greenwood, Chicago USA', 'viewpoint'),
 		'transport'	=> 'postMessage'
 	);
 
@@ -165,7 +165,7 @@ function gpframework_customizer_library_options() {
 
 	$panels[] = array(
 		'id' => $panel,
-		'title' => __( 'Home', 'gpframework' ),
+		'title' => __( 'Home', 'viewpoint' ),
 		'priority' => '10'
 	);
 
@@ -177,33 +177,33 @@ function gpframework_customizer_library_options() {
 
 	$sections[] = array(
 		'id' => $section,
-		'title' => __( 'Featured Posts', 'gpframework' ),
+		'title' => __( 'Featured Posts', 'viewpoint' ),
 		'priority' => '15',
-		'description' => __( 'Settings for the featured posts section', 'gpframework' ),
+		'description' => __( 'Settings for the featured posts section', 'viewpoint' ),
 		'panel' => $panel
 	);
 
 	$options['home_posts_section_title'] = array(
 		'id' 						=> 'home_posts_section_title',
-		'label'   			=> __( 'Section Title', 'gpframework' ),
+		'label'   			=> __( 'Section Title', 'viewpoint' ),
 		'section' 			=> $section,
 		'type'    			=> 'textarea',
-		'default' 			=> __( 'Latest News', 'gpframework' ),
+		'default' 			=> __( 'Latest News', 'viewpoint' ),
 		'transport'			=> 'postMessage'
 	);
 
 	$options['home_posts_section_subtitle'] = array(
 		'id' => 'home_posts_section_subtitle',
-		'label'   		=> __( 'Section Subtitle', 'gpframework' ),
+		'label'   		=> __( 'Section Subtitle', 'viewpoint' ),
 		'section' 		=> $section,
 		'type'    		=> 'textarea',
-		'default' 		=> __( 'Change this text in the theme customizer', 'gpframework' ),
+		'default' 		=> __( 'Change this text in the theme customizer', 'viewpoint' ),
 		'transport'		=> 'postMessage'
 	);
 
 	$options['home_posts_cat'] = array(
 		'id' 				=> 'home_posts_cat',
-		'label'   			=> __( 'Home Posts Category', 'gpframework' ),
+		'label'   			=> __( 'Home Posts Category', 'viewpoint' ),
 		'section' 			=> $section,
 		'type'    			=> 'select',
 		'choices' 			=> $options_cats
@@ -216,15 +216,15 @@ function gpframework_customizer_library_options() {
 
 	$sections[] = array(
 		'id' => $section,
-		'title' => __( 'Secondary Content', 'gpframework' ),
+		'title' => __( 'Secondary Content', 'viewpoint' ),
 		'priority' => '25',
-		'description' => __( 'Settings for the secondary content section on the home page', 'gpframework' ),
+		'description' => __( 'Settings for the secondary content section on the home page', 'viewpoint' ),
 		'panel' => $panel
 	);
 
 	$options['home_secondary_content_page'] = array(
 		'id' => 'home_secondary_content_page',
-		'label' => __( 'Secondary Content Page', 'gpframework' ),
+		'label' => __( 'Secondary Content Page', 'viewpoint' ),
 		'section' => $section,
 		'type' => 'dropdown-pages',
 		'default' => ''
@@ -232,19 +232,19 @@ function gpframework_customizer_library_options() {
 
 	$options['home_secondary_content_title'] = array(
 		'id' 						=> 'home_secondary_content_title',
-		'label'   			=> __( 'Section Title', 'gpframework' ),
+		'label'   			=> __( 'Section Title', 'viewpoint' ),
 		'section' 			=> $section,
 		'type'    			=> 'textarea',
-		'default' 			=> __( 'Community', 'gpframework' ),
+		'default' 			=> __( 'Community', 'viewpoint' ),
 		'transport'			=> 'postMessage'
 	);
 
 	$options['home_secondary_content_subtitle'] = array(
 		'id' => 'home_secondary_content_subtitle',
-		'label'   		=> __( 'Section Subtitle', 'gpframework' ),
+		'label'   		=> __( 'Section Subtitle', 'viewpoint' ),
 		'section' 		=> $section,
 		'type'    		=> 'textarea',
-		'default' 		=> __( 'Change this text in the theme customizer', 'gpframework' ),
+		'default' 		=> __( 'Change this text in the theme customizer', 'viewpoint' ),
 		'transport'		=> 'postMessage'
 	);
 
@@ -256,15 +256,15 @@ function gpframework_customizer_library_options() {
 
 	$sections[] = array(
 		'id' => $section,
-		'title' => __( 'Paralax Content', 'gpframework' ),
+		'title' => __( 'Paralax Content', 'viewpoint' ),
 		'priority' => '20',
-		'description' => __( 'Settings for the paralax content section on the home page', 'gpframework' ),
+		'description' => __( 'Settings for the paralax content section on the home page', 'viewpoint' ),
 		'panel' => $panel
 	);
 
 	$options['home_paralax_content_page'] = array(
 		'id' => 'home_paralax_content_page',
-		'label' => __( 'Paralax Content Page', 'gpframework' ),
+		'label' => __( 'Paralax Content Page', 'viewpoint' ),
 		'section' => $section,
 		'type' => 'dropdown-pages',
 		'default' => ''
@@ -272,7 +272,7 @@ function gpframework_customizer_library_options() {
 
 	$options['home_paralax_bg'] = array(
 		'id' 				=> 'home_paralax_bg',
-		'label'   			=> __( 'Background Image', 'gpframework' ),
+		'label'   			=> __( 'Background Image', 'viewpoint' ),
 		'section' 			=> $section,
 		'type'    			=> 'image',
 		'default' 			=> $imagepath . 'home-paralax.jpg'
@@ -280,7 +280,7 @@ function gpframework_customizer_library_options() {
 
 	$options['home_paralax_bg_color'] = array(
 		'id' 				=> 'home_paralax_bg_color',
-		'label'   			=> __( 'Background color if no image is being used', 'gpframework' ),
+		'label'   			=> __( 'Background color if no image is being used', 'viewpoint' ),
 		'section' 			=> $section,
 		'type'    			=> 'color',
 		'default' 			=> $primary_color_drkblue
@@ -294,15 +294,15 @@ function gpframework_customizer_library_options() {
  * add_theme_support( 'custom-header' ) will display in
  * this section.
  *
- * @see gpframework_backstretch_setup()
+ * @see viewpoint_backstretch_setup()
  */
 	$section = 'header_image';
 
 	$sections[] = array(
 		'id' 			=> $section,
-		'title' 		=> __( 'Hero Slider', 'gpframework' ),
+		'title' 		=> __( 'Hero Slider', 'viewpoint' ),
 		'priority' 		=> '5',
-		'description' 	=> __( 'Settings for the home slider.', 'gpframework' ),
+		'description' 	=> __( 'Settings for the home slider.', 'viewpoint' ),
 		'panel' => $panel
 	);
 
@@ -311,15 +311,15 @@ function gpframework_customizer_library_options() {
         'section' => $section,
         'label'    => 'Content',
         'type'     => 'content',
-		'description' 	=> __( 'The content area is widgetized. To add content (text, buttons, etc.), add a widget at Widgets > Home Hero', 'gpframework' )
+		'description' 	=> __( 'The content area is widgetized. To add content (text, buttons, etc.), add a widget at Widgets > Home Hero', 'viewpoint' )
 	);
 
 	$options['home_duration'] = array(
 	    'id' => 'home_duration',
-	    'label'   => __( 'Images Duration', 'gpframework' ),
+	    'label'   => __( 'Images Duration', 'viewpoint' ),
 	    'section' => $section,
 	    'type'    => 'range',
-	    'description' => __( 'Duration time for each background image.', 'gpframework' ),
+	    'description' => __( 'Duration time for each background image.', 'viewpoint' ),
 	    'default' => 4000,
 	    'input_attrs' => array(
 	        'min'   => 100,
@@ -330,10 +330,10 @@ function gpframework_customizer_library_options() {
 
 	$options['home_fade'] = array(
 	    'id' => 'home_fade',
-	    'label'   => __( 'Image Fade In', 'gpframework' ),
+	    'label'   => __( 'Image Fade In', 'viewpoint' ),
 	    'section' => $section,
 	    'type'    => 'range',
-	    'description' => __( 'Fade in duration for each background image.', 'gpframework' ),
+	    'description' => __( 'Fade in duration for each background image.', 'viewpoint' ),
 	    'default' => 1000,
 	    'input_attrs' => array(
 	        'min'   => 100,
@@ -344,8 +344,8 @@ function gpframework_customizer_library_options() {
 
 	$options['home_overlay_color'] = array(
 		'id' => 'home_overlay_color',
-		'label'   => __( 'Overlay Color', 'gpframework' ),
-		'description' => __( 'Color overlayed on the home page images.', 'gpframework' ),
+		'label'   => __( 'Overlay Color', 'viewpoint' ),
+		'description' => __( 'Color overlayed on the home page images.', 'viewpoint' ),
 		'section' => $section,
 		'type'    => 'color',
 		'default' => $primary_color_drkblue,
@@ -353,10 +353,10 @@ function gpframework_customizer_library_options() {
 
 	$options['home_opacity'] = array(
 		'id' => 'home_opacity',
-		'label'   => __( 'Opacity level', 'gpframework' ),
+		'label'   => __( 'Opacity level', 'viewpoint' ),
 		'section' => $section,
 		'type'    => 'range',
-		'description' => __( 'Adjust the opacity for the overlay color.', 'gpframework' ),
+		'description' => __( 'Adjust the opacity for the overlay color.', 'viewpoint' ),
 		'default' => '0.6',
 	    'input_attrs' => array(
 	        'min'   => 0,
@@ -372,17 +372,17 @@ function gpframework_customizer_library_options() {
 
 	$sections[] = array(
 		'id' => $section,
-		'title' => __( 'Copyright', 'gpframework' ),
+		'title' => __( 'Copyright', 'viewpoint' ),
 		'priority' => '30',
-		'description' => __( 'Settings for the copyright area', 'gpframework' ),
+		'description' => __( 'Settings for the copyright area', 'viewpoint' ),
 	);
 
 	$options['footer_copyright'] = array(
 		'id' => 'footer_copyright',
-		'label'   		=> __( 'Copyright Text', 'gpframework' ),
+		'label'   		=> __( 'Copyright Text', 'viewpoint' ),
 		'section' 		=> $section,
 		'type'    		=> 'textarea',
-		'default' 		=> sprintf( __( 'Copyright 2015 <a href="%1s">Rescue Themes</a>. All Rights Reserved. Paid for by the campaign.', 'gpframework' ), esc_url( $site_link ) ),
+		'default' 		=> sprintf( __( 'Copyright 2015 <a href="%1s">Rescue Themes</a>. All Rights Reserved. Paid for by the campaign.', 'viewpoint' ), esc_url( $site_link ) ),
 		'transport'		=> 'postMessage'
 	);
 
@@ -394,7 +394,7 @@ function gpframework_customizer_library_options() {
 
 	$panels[] = array(
 		'id' => $panel,
-		'title' => __( 'Blog', 'gpframework' ),
+		'title' => __( 'Blog', 'viewpoint' ),
 		'priority' => '20'
 	);
 
@@ -402,9 +402,9 @@ function gpframework_customizer_library_options() {
 
 	$sections[] = array(
 		'id' => $section,
-		'title' => __( 'Layout', 'gpframework' ),
+		'title' => __( 'Layout', 'viewpoint' ),
 		'priority' => '30',
-		'description' => __( 'Settings for the blog page layout', 'gpframework' ),
+		'description' => __( 'Settings for the blog page layout', 'viewpoint' ),
 		'panel' => $panel
 	);
 
@@ -413,9 +413,9 @@ function gpframework_customizer_library_options() {
 		'traditional' => 'Traditional'
 	);
 
-	$options['gpframework_blog_style'] = array(
-		'id' => 'gpframework_blog_style',
-		'label'   => __( 'Blog Page Style', 'gpframework' ),
+	$options['viewpoint_blog_style'] = array(
+		'id' => 'viewpoint_blog_style',
+		'label'   => __( 'Blog Page Style', 'viewpoint' ),
 		'section' => $section,
 		'type'    => 'select',
 		'choices' => $choices,
@@ -426,27 +426,27 @@ function gpframework_customizer_library_options() {
 
 	$sections[] = array(
 		'id' => $section,
-		'title' => __( 'Header', 'gpframework' ),
+		'title' => __( 'Header', 'viewpoint' ),
 		'priority' => '30',
-		'description' => __( 'Settings for the blog page header', 'gpframework' ),
+		'description' => __( 'Settings for the blog page header', 'viewpoint' ),
 		'panel' => $panel
 	);
 
-	$options['gpframework_blog_title'] = array(
-		'id' => 'gpframework_blog_title',
-		'label'   		=> __( 'Page Title', 'gpframework' ),
+	$options['viewpoint_blog_title'] = array(
+		'id' => 'viewpoint_blog_title',
+		'label'   		=> __( 'Page Title', 'viewpoint' ),
 		'section' 		=> $section,
 		'type'    		=> 'textarea',
-		'default' 		=> __( 'Latest Posts', 'gpframework' ),
+		'default' 		=> __( 'Latest Posts', 'viewpoint' ),
 		'transport'		=> 'postMessage'
 	);
 
-	$options['gpframework_blog_subtitle'] = array(
-		'id' => 'gpframework_blog_subtitle',
-		'label'   		=> __( 'Page Subtitle', 'gpframework' ),
+	$options['viewpoint_blog_subtitle'] = array(
+		'id' => 'viewpoint_blog_subtitle',
+		'label'   		=> __( 'Page Subtitle', 'viewpoint' ),
 		'section' 		=> $section,
 		'type'    		=> 'textarea',
-		'default' 		=> __( 'Change this text in the customizer', 'gpframework' ),
+		'default' 		=> __( 'Change this text in the customizer', 'viewpoint' ),
 		'transport'		=> 'postMessage'
 	);
 
@@ -464,14 +464,14 @@ function gpframework_customizer_library_options() {
 
 	$sections[] = array(
 		'id' => $section,
-		'title' => __( 'Basic Colors', 'gpframework' ),
+		'title' => __( 'Basic Colors', 'viewpoint' ),
 		'priority' => '5',
-		'description'	=> __('These are the default sitewide colors.','gpframework')
+		'description'	=> __('These are the default sitewide colors.','viewpoint')
 	);
 
 	$options['color-headers'] = array(
 		'id'				=> 'color-headers',
-		'label'			=> __( 'Text Headers', 'gpframework' ),
+		'label'			=> __( 'Text Headers', 'viewpoint' ),
 		'section'		=> $section,
 		'type'			=> 'color',
 		'default'		=> $header_font_color,
@@ -480,7 +480,7 @@ function gpframework_customizer_library_options() {
 
 	$options['color-content'] = array(
 		'id'				=> 'color-content',
-		'label'			=> __( 'Standard Text', 'gpframework' ),
+		'label'			=> __( 'Standard Text', 'viewpoint' ),
 		'section'		=> $section,
 		'type'			=> 'color',
 		'default'		=> $body_font_color,
@@ -489,7 +489,7 @@ function gpframework_customizer_library_options() {
 
 	$options['color-content-link'] = array(
 		'id'				=> 'color-content-link',
-		'label'			=> __( 'Links', 'gpframework' ),
+		'label'			=> __( 'Links', 'viewpoint' ),
 		'section'		=> $section,
 		'type'			=> 'color',
 		'default'		=> $header_font_color,
@@ -498,7 +498,7 @@ function gpframework_customizer_library_options() {
 
 	$options['color-content-link-hover'] = array(
 		'id'				=> 'color-content-link-hover',
-		'label'			=> __( 'Link Hover', 'gpframework' ),
+		'label'			=> __( 'Link Hover', 'viewpoint' ),
 		'section'		=> $section,
 		'type'			=> 'color',
 		'default'		=> $accent_color
@@ -506,7 +506,7 @@ function gpframework_customizer_library_options() {
 
 	$options['color-content-top-bar'] = array(
 		'id'				=> 'color-content-top-bar',
-		'label'			=> __( 'Top Bar Background', 'gpframework' ),
+		'label'			=> __( 'Top Bar Background', 'viewpoint' ),
 		'section'		=> $section,
 		'type'			=> 'color',
 		'default'		=> $accent_color_dark,
@@ -515,7 +515,7 @@ function gpframework_customizer_library_options() {
 
 	$options['color-content-body-bg'] = array(
 		'id'				=> 'color-content-body-bg',
-		'label'			=> __( 'Sitewide Background', 'gpframework' ),
+		'label'			=> __( 'Sitewide Background', 'viewpoint' ),
 		'section'		=> $section,
 		'type'			=> 'color',
 		'default'		=> $white,
@@ -524,10 +524,10 @@ function gpframework_customizer_library_options() {
 
 	$options['advanced-colors'] = array(
     'id' 					=> 'advanced-colors',
-    'label' 			=> __( 'Advanced Colors', 'gpframework' ),
+    'label' 			=> __( 'Advanced Colors', 'viewpoint' ),
     'section' 		=> $section,
     'type' 				=> 'content',
-    'content' 		=> __( '<p>Fine tune your site design with an unlimited number of color options for each section of the site:</p><ul><li>Backgrounds</li><li>Navigation</li><li>Links and Fonts</li><li>Footer</li><li>and more!</li></ul>', 'gpframework' ),
+    'content' 		=> __( '<p>Fine tune your site design with an unlimited number of color options for each section of the site:</p><ul><li>Backgrounds</li><li>Navigation</li><li>Links and Fonts</li><li>Footer</li><li>and more!</li></ul>', 'viewpoint' ),
     'description' => sprintf( '<a class="upgrade-link" target="_blank" href="%1s">%2s &rarr;</a>', esc_url( $upgrade_link ), esc_attr( $upgrade_text ) )
 	);
 
@@ -540,49 +540,49 @@ function gpframework_customizer_library_options() {
 
 	$sections[] = array(
 		'id' 						=> $section,
-		'title' 				=> __( 'Upgrade Available', 'gpframework' ),
+		'title' 				=> __( 'Upgrade Available', 'viewpoint' ),
 		'priority'	 		=> '50',
 		'description' 	=> ''
 	);
 
 	$options['home-controls-plus'] = array(
     'id' 				=> 'home-controls-plus',
-    'label' 		=> __( 'Home Sections', 'gpframework' ),
+    'label' 		=> __( 'Home Sections', 'viewpoint' ),
     'section' 	=> $section,
     'type' 			=> 'content',
-    'content' 	=> sprintf( __( '<p>Take control of your home page content sections with the abilitiy to re-order and toggle sections on/off.</p><img src="%s">', 'gpframework' ),  $imagepath .'home-controls.png' )
+    'content' 	=> sprintf( __( '<p>Take control of your home page content sections with the abilitiy to re-order and toggle sections on/off.</p><img src="%s">', 'viewpoint' ),  $imagepath .'home-controls.png' )
 	);
 
 	$options['typography-plus'] = array(
     'id' 					=> 'typography-plus',
-    'label' 			=> __( 'Advanced Typography Settings', 'gpframework' ),
+    'label' 			=> __( 'Advanced Typography Settings', 'viewpoint' ),
     'section' 		=> $section,
     'type' 				=> 'content',
-    'content' 		=> __( '<p>You\'ll have access to 500+ Google Fonts along with font size, weight, style, transform, line height, and spacing settings for every part of your site!</p><ul><li>Headers and Content</li><li>Navigation</li><li>Sidebar</li><li>Footer</li><li>Copyright</li><li>and more!</li></ul>', 'gpframework' )
+    'content' 		=> __( '<p>You\'ll have access to 500+ Google Fonts along with font size, weight, style, transform, line height, and spacing settings for every part of your site!</p><ul><li>Headers and Content</li><li>Navigation</li><li>Sidebar</li><li>Footer</li><li>Copyright</li><li>and more!</li></ul>', 'viewpoint' )
 	);
 
 	$options['colors-plus'] = array(
     'id' 					=> 'colors-plus',
-    'label' 			=> __( 'Advanced Color Settings', 'gpframework' ),
+    'label' 			=> __( 'Advanced Color Settings', 'viewpoint' ),
     'section' 		=> $section,
     'type' 				=> 'content',
-    'content' 		=> __( '<p>Fine tune your site design with an unlimited number of color options for each section of the site:</p><ul><li>Backgrounds</li><li>Navigation</li><li>Links and Fonts</li><li>Footer</li><li>and more!</li></ul>', 'gpframework' )
+    'content' 		=> __( '<p>Fine tune your site design with an unlimited number of color options for each section of the site:</p><ul><li>Backgrounds</li><li>Navigation</li><li>Links and Fonts</li><li>Footer</li><li>and more!</li></ul>', 'viewpoint' )
 	);
 
 	$options['plus-sidebar-notice'] = array(
     'id' 					=> 'plus-sidebar-notice',
-    'label' 			=> __( 'Sidebar Layout', 'gpframework' ),
+    'label' 			=> __( 'Sidebar Layout', 'viewpoint' ),
     'section' 		=> $section,
     'type' 				=> 'content',
-    'content' 		=> sprintf( __( '<p>Adjust the inner sidebar position to display on the right or left side of your content.</p>', 'gpframework' ) )
+    'content' 		=> sprintf( __( '<p>Adjust the inner sidebar position to display on the right or left side of your content.</p>', 'viewpoint' ) )
 	);
 
 	$options['plus-woocommerce-notice'] = array(
     'id' 					=> 'plus-woocommerce-notice',
-    'label' 			=> __( 'WooCommerce', 'gpframework' ),
+    'label' 			=> __( 'WooCommerce', 'viewpoint' ),
     'section' 		=> $section,
     'type' 				=> 'content',
-    'content' 		=> __( '<p>gpframework Plus includes compatibility with the world\'s most popular ecommerce system, WooCommerce. Sell physical products, music files, or even your time when you upgrade!</p>', 'gpframework' ),
+    'content' 		=> __( '<p>viewpoint Plus includes compatibility with the world\'s most popular ecommerce system, WooCommerce. Sell physical products, music files, or even your time when you upgrade!</p>', 'viewpoint' ),
     'description' => sprintf( '<a class="upgrade-link" target="_blank" href="%1s">%2s &rarr;</a>', esc_url( $upgrade_link ), esc_attr( $upgrade_text ) )
 	);
 
@@ -598,4 +598,4 @@ function gpframework_customizer_library_options() {
 	// To delete custom mods use: customizer_library_remove_theme_mods();
 
 }
-add_action( 'init', 'gpframework_customizer_library_options' );
+add_action( 'init', 'viewpoint_customizer_library_options' );

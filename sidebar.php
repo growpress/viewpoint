@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package mytesttheme
+ * @package viewpoint
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {

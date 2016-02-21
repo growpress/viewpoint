@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package gpframework
+ * @package viewpoint
  */
 
 ?>
@@ -16,7 +16,7 @@
 	<div class="footer-wrap" role="contentinfo">
 		<footer id="colophon" class="site-footer">
 			<div class="row">
-				<div class="large-3 columns widget-area">
+				<div class="large-4 columns widget-area">
 				<?php if ( is_active_sidebar( 'footer-first' ) ) { ?>
 
 					<?php dynamic_sidebar( 'footer-first' ); ?>
@@ -24,7 +24,7 @@
 				<?php } ?>
 				</div><!-- .widget-area -->
 
-				<div class="large-3 columns widget-area">
+				<div class="large-4 columns widget-area">
 				<?php if ( is_active_sidebar( 'footer-second' ) ) { ?>
 
 					<?php dynamic_sidebar( 'footer-second' ); ?>
@@ -32,18 +32,10 @@
 				<?php } ?>
 				</div><!-- .widget-area -->
 
-				<div class="large-3 columns widget-area">
+				<div class="large-4 columns widget-area">
 				<?php if ( is_active_sidebar( 'footer-third' ) ) { ?>
 
 					<?php dynamic_sidebar( 'footer-third' ); ?>
-
-				<?php } ?>
-				</div><!-- .widget-area -->
-
-				<div class="large-3 columns widget-area">
-				<?php if ( is_active_sidebar( 'footer-fourth' ) ) { ?>
-
-					<?php dynamic_sidebar( 'footer-fourth' ); ?>
 
 				<?php } ?>
 				</div><!-- .widget-area -->

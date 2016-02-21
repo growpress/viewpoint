@@ -22,7 +22,7 @@
  */
 require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'politics_register_required_plugins' );
+add_action( 'tgmpa_register', 'viewpoint_register_required_plugins' );
 /**
  * Register the required plugins for this theme.
  *
@@ -37,7 +37,7 @@ add_action( 'tgmpa_register', 'politics_register_required_plugins' );
  * This function is hooked into tgmpa_init, which is fired within the
  * TGM_Plugin_Activation class constructor.
  */
-function politics_register_required_plugins() {
+function viewpoint_register_required_plugins() {
 	/*
 	 * Array of plugin arrays. Required keys are name and slug.
 	 */
@@ -50,26 +50,8 @@ function politics_register_required_plugins() {
 		),
 
 		array(
-			'name'      => 'Rescue Shortcodes',
-			'slug'      => 'rescue-shortcodes',
-			'required'  => false,
-		),
-
-		array(
 			'name'      => 'Mailbag',
 			'slug'      => 'mailbag',
-			'required'  => false,
-		),
-
-		array(
-			'name'      => 'Give',
-			'slug'      => 'give',
-			'required'  => false,
-		),
-
-		array(
-			'name'      => 'Widget Importer & Exporter',
-			'slug'      => 'widget-importer-exporter',
 			'required'  => false,
 		),
 
@@ -85,9 +67,9 @@ function politics_register_required_plugins() {
 	 * Only uncomment the strings in the config array if you want to customize the strings.
 	 */
 	$config = array(
-		'id'           => 'politics',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+		'id'           => 'viewpoint',                 // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
-		'menu'         => 'politics-install-plugins', // Menu slug.
+		'menu'         => 'viewpoint-install-plugins', // Menu slug.
 		'parent_slug'  => 'themes.php',            // Parent menu slug.
 		'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
 		'has_notices'  => true,                    // Show admin notices or not.
@@ -96,77 +78,77 @@ function politics_register_required_plugins() {
 		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
 		'message'      => '',                      // Message to output right before the plugins table.
 		'strings'      => array(
-			'page_title'                      => __( 'Install Required Plugins', 'politics' ),
-			'menu_title'                      => __( 'Install Plugins', 'politics' ),
-			'installing'                      => __( 'Installing Plugin: %s', 'politics' ), // %s = plugin name.
-			'oops'                            => __( 'Something went wrong with the plugin API.', 'politics' ),
+			'page_title'                      => __( 'Install Required Plugins', 'viewpoint' ),
+			'menu_title'                      => __( 'Install Plugins', 'viewpoint' ),
+			'installing'                      => __( 'Installing Plugin: %s', 'viewpoint' ), // %s = plugin name.
+			'oops'                            => __( 'Something went wrong with the plugin API.', 'viewpoint' ),
 			'notice_can_install_required'     => _n_noop(
 				'This theme requires the following plugin: %1$s.',
 				'This theme requires the following plugins: %1$s.',
-				'politics'
+				'viewpoint'
 			), // %1$s = plugin name(s).
 			'notice_can_install_recommended'  => _n_noop(
 				'This theme recommends the following plugin: %1$s.',
 				'This theme recommends the following plugins: %1$s.',
-				'politics'
+				'viewpoint'
 			), // %1$s = plugin name(s).
 			'notice_cannot_install'           => _n_noop(
 				'Sorry, but you do not have the correct permissions to install the %1$s plugin.',
 				'Sorry, but you do not have the correct permissions to install the %1$s plugins.',
-				'politics'
+				'viewpoint'
 			), // %1$s = plugin name(s).
 			'notice_ask_to_update'            => _n_noop(
 				'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
 				'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
-				'politics'
+				'viewpoint'
 			), // %1$s = plugin name(s).
 			'notice_ask_to_update_maybe'      => _n_noop(
 				'There is an update available for: %1$s.',
 				'There are updates available for the following plugins: %1$s.',
-				'politics'
+				'viewpoint'
 			), // %1$s = plugin name(s).
 			'notice_cannot_update'            => _n_noop(
 				'Sorry, but you do not have the correct permissions to update the %1$s plugin.',
 				'Sorry, but you do not have the correct permissions to update the %1$s plugins.',
-				'politics'
+				'viewpoint'
 			), // %1$s = plugin name(s).
 			'notice_can_activate_required'    => _n_noop(
 				'The following required plugin is currently inactive: %1$s.',
 				'The following required plugins are currently inactive: %1$s.',
-				'politics'
+				'viewpoint'
 			), // %1$s = plugin name(s).
 			'notice_can_activate_recommended' => _n_noop(
 				'The following recommended plugin is currently inactive: %1$s.',
 				'The following recommended plugins are currently inactive: %1$s.',
-				'politics'
+				'viewpoint'
 			), // %1$s = plugin name(s).
 			'notice_cannot_activate'          => _n_noop(
 				'Sorry, but you do not have the correct permissions to activate the %1$s plugin.',
 				'Sorry, but you do not have the correct permissions to activate the %1$s plugins.',
-				'politics'
+				'viewpoint'
 			), // %1$s = plugin name(s).
 			'install_link'                    => _n_noop(
 				'Begin installing plugin',
 				'Begin installing plugins',
-				'politics'
+				'viewpoint'
 			),
 			'update_link' 					  => _n_noop(
 				'Begin updating plugin',
 				'Begin updating plugins',
-				'politics'
+				'viewpoint'
 			),
 			'activate_link'                   => _n_noop(
 				'Begin activating plugin',
 				'Begin activating plugins',
-				'politics'
+				'viewpoint'
 			),
-			'return'                          => __( 'Return to Required Plugins Installer', 'politics' ),
-			'plugin_activated'                => __( 'Plugin activated successfully.', 'politics' ),
-			'activated_successfully'          => __( 'The following plugin was activated successfully:', 'politics' ),
-			'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'politics' ),  // %1$s = plugin name(s).
-			'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'politics' ),  // %1$s = plugin name(s).
-			'complete'                        => __( 'All plugins installed and activated successfully. %1$s', 'politics' ), // %s = dashboard link.
-			'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'politics' ),
+			'return'                          => __( 'Return to Required Plugins Installer', 'viewpoint' ),
+			'plugin_activated'                => __( 'Plugin activated successfully.', 'viewpoint' ),
+			'activated_successfully'          => __( 'The following plugin was activated successfully:', 'viewpoint' ),
+			'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'viewpoint' ),  // %1$s = plugin name(s).
+			'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'viewpoint' ),  // %1$s = plugin name(s).
+			'complete'                        => __( 'All plugins installed and activated successfully. %1$s', 'viewpoint' ), // %s = dashboard link.
+			'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'viewpoint' ),
 			'nag_type'                        => 'updated', // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
 		),
 	);

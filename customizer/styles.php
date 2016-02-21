@@ -2,7 +2,7 @@
 /**
  * Implements styles set in the theme customizer
  *
- * @package Politics
+ * @package Viewpoint
  */
 
 /*--------------------------------------------------------------
@@ -233,13 +233,13 @@ function customizer_library_demo_styles() {
 
 	echo "\n<!-- Begin Custom CSS -->\n<style type=\"text/css\" id=\"framework-custom-css\">\n";
 
-	$politics_plug_logo_height = get_theme_mod( 'politics-logo-height', customizer_library_get_default( 'politics-logo-height' ) );
-	$politics_logo_width = get_theme_mod( 'politics-logo-width', customizer_library_get_default( 'politics-logo-width' ) );
+	$viewpoint_plug_logo_height = get_theme_mod( 'viewpoint-logo-height', customizer_library_get_default( 'viewpoint-logo-height' ) );
+	$viewpoint_logo_width = get_theme_mod( 'viewpoint-logo-width', customizer_library_get_default( 'viewpoint-logo-width' ) );
 
-	if ( $politics_plug_logo_height || $politics_logo_width ) { ?>
+	if ( $viewpoint_plug_logo_height || $viewpoint_logo_width ) { ?>
 		.site-branding img {
-			height: <?php echo esc_attr( $politics_plug_logo_height ) ?>;
-			width: <?php echo esc_attr( $politics_logo_width ) ?>;
+			height: <?php echo esc_attr( $viewpoint_plug_logo_height ) ?>;
+			width: <?php echo esc_attr( $viewpoint_logo_width ) ?>;
 		}
 	<?php }
 

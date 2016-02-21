@@ -4,8 +4,8 @@
  * Adding addtional markeup to the Archive widget
  * for custom styling
  */
-add_filter('get_archives_link', 'politics_archive_count_span');
-function politics_archive_count_span($links) {
+add_filter('get_archives_link', 'viewpoint_archive_count_span');
+function viewpoint_archive_count_span($links) {
   $links = str_replace('</a>&nbsp;(', '&nbsp;<span>', $links);
   $links = str_replace(')', '&nbsp;</span></a>', $links);
   $links = str_replace('(', '&nbsp;', $links);
@@ -16,8 +16,8 @@ function politics_archive_count_span($links) {
  * Adding addtional markeup to the Categories widget
  * fot custom styling
  */
-add_filter('wp_list_categories', 'politics_cat_count_span');
-function politics_cat_count_span($links) {
+add_filter('wp_list_categories', 'viewpoint_cat_count_span');
+function viewpoint_cat_count_span($links) {
   $links = str_replace('</a> (', '&nbsp;<span>', $links);
   $links = str_replace(')', '</span>', $links);
   return $links;

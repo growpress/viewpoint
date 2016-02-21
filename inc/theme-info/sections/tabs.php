@@ -1,7 +1,7 @@
 <h2 class="nav-tab-wrapper">
-	<a href="#getting_started" class="nav-tab nav-tab-active "><span class="dashicons dashicons-admin-tools"></span><?php _e( 'Getting Started', 'politics' ); ?></a>
-	<a href="#support" class="nav-tab"><span class="dashicons dashicons-star-filled"></span><?php _e( 'Politics Support', 'politics' ); ?></a>
-	<a href="#changelog" class="nav-tab"><span class="dashicons dashicons-media-default"></span><?php _e( 'Changelog', 'politics' ); ?></a>
+	<a href="#getting_started" class="nav-tab nav-tab-active "><span class="dashicons dashicons-admin-tools"></span><?php _e( 'Getting Started', 'viewpoint' ); ?></a>
+	<a href="#support" class="nav-tab"><span class="dashicons dashicons-star-filled"></span><?php _e( 'viewpoint Support', 'viewpoint' ); ?></a>
+	<a href="#changelog" class="nav-tab"><span class="dashicons dashicons-media-default"></span><?php _e( 'Changelog', 'viewpoint' ); ?></a>
 </h2>
 
 <script>
